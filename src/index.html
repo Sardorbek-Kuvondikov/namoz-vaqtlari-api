@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Namoz vaqtlari api render</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./output.css" />
+  </head>
+  <body class="bg-[#1F2936] text-slate-300">
+    <header class="bg-[#17212B] p-[26px]">
+      <div class="container">
+        <nav class="flex items-center justify-between">
+          <a href="./index.html">
+            <span class="mt-1 text-2xl">Uzb Namozvaqti</span>
+          </a>
+          <form class="flex items-center gap-6">
+            <select
+              class="p-2 bg-[#2f3d50] rounded-md hover:cursor-pointer transition-all js-province-select"
+            >
+              <option value="toshkent" disabled selected>Shaxar tanlash</option>
+            </select>
+
+            <button
+              class="bg-[#2f3d50] p-[6px] pl-4 pr-4 rounded-md"
+              type="button"
+            >
+              <i class="fa-solid fa-moon"></i>
+              <!-- <i class="fa-solid fa-sun"></i> -->
+            </button>
+
+            <button
+              class="p-2 pl-[13px] pr-[13px] rounded-full bg-[#2f3d50]"
+              type="button"
+            >
+              <i class="fa-solid fa-user"></i>
+            </button>
+          </form>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- THE FUNCTIONAL SECTION -->
+      <section class="mt-5">
+        <div class="container">
+          <form class="js-regions-search">
+            <input
+              class="p-2 w-72 pl-4 rounded-sm bg-[#2F3D50] js-regions-search-inp"
+              type="search"
+              placeholder="Search..."
+              aria-label="Search"
+            />
+            <select
+              class="ml-3 p-2 rounded-sm bg-[#2F3D50] js-namozvaqti-select"
+            >
+              <option value="day">day</option>
+              <option value="week">week</option>
+              <option value="month">month</option>
+            </select>
+            <button class="ml-3 p-2 rounded-sm bg-[#2F3D50]" type="submit">
+              Search
+            </button>
+          </form>
+          <h1 class="mt-10 text-2xl text-center">
+            O'zbekiston (<span class="text-blue-500 js-province"
+              >Samarqand viloyati</span
+            >) nomoz vaqtlari! <br />
+          </h1>
+        </div>
+      </section>
+
+      <!-- THE DATA RENDER LISTS SECTION -->
+      <section class="mt-10 js-one-day-namazvoqti">
+        <div class="container">
+          <div class="bg-[#242f3dd0] p-5 pb-20 rounded-md">
+            <ul class="mb-10">
+              <li class="flex items-center justify-between">
+                <h2
+                  class="text-2xl w-64 text-blue-500 opacity-80 js-day-region"
+                >
+                  Samarqand viloyati
+                </h2>
+                <span class="text-xl opacity-60">Bugun!</span>
+              </li>
+            </ul>
+            <ul
+              class="flex items-center justify-between js-nomozvaqti-day"
+            ></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-10 hidden js-namozvaqti-all">
+        <div class="container">
+          <div>
+            <table class="min-w-full bg-white shadow-md rounded">
+              <thead>
+                <tr class="bg-[#2c394c] text-white shadow-2xl">
+                  <th class="pt-3 pb-3">Id</th>
+                  <th>Week</th>
+                  <th>data</th>
+                  <th>Bomdod</th>
+                  <th>Quyosh</th>
+                  <th>Peshin</th>
+                  <th>Asr</th>
+                  <th>Shom</th>
+                  <th>Xufton</th>
+                </tr>
+              </thead>
+              <tbody class="js-week-render-list"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <template class="js-day-template">
+      <li
+        class="bg-[#2F3D50] w-44 p-3 rounded-md hover:cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 {hover:bg-indigo-500} hover:bg-[#605ee5b6]"
+      >
+        <h3 class="text-center text-xl js-data-time-name">Toshkent</h3>
+        <time class="mt-2 mb-2 text-center block text-3xl js-data-time"
+          >03:17</time
+        >
+      </li>
+    </template>
+
+    <template class="js-week-template">
+      <tr class="text-center bg-[#34445b]">
+        <td class="p-2 js-week-id"></td>
+        <td class="js-week-day"></td>
+        <td class="js-week-time"></td>
+        <td class="js-week-bomdod-time"></td>
+        <td class="js-week-quyosh-time"></td>
+        <td class="js-week-peshin-time"></td>
+        <td class="js-week-asr-time"></td>
+        <td class="js-week-shom-time"></td>
+        <td class="js-week-xufton-time"></td>
+      </tr>
+    </template>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

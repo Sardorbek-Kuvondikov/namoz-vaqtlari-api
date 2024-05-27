@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Roboto", "Arial", sans-serif;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/roboto-v30-latin-regular.woff2") format("woff2");
+}
+
+.container {
+  max-width: 1380px;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.block {
+  display: block;
+}
